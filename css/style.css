@@ -9,21 +9,16 @@
     display: flex;
     border: 1px solid black;
     padding: 10px;
-    /* flex-wrap: wrap; */
-    /* by default it is row */
-    /* flex-direction: row; */
     justify-content: space-around;
 }
 .blackjack-row-1, .blackjack-row-2{
     background: url('https://media.istockphoto.com/vectors/poker-table-background-in-green-color-vector-id1218355494?k=20&m=1218355494&s=612x612&w=0&h=7izk2bQU_LDnKLLLbwAolAo4kwUmcwr_mo8_Vr7955w=') ;
-    /* url('https://image.shutterstock.com/image-photo/poker-table-background-260nw-39293185.jpg') ;  */
-    /* center after the bracket of url will start the image from top to bottom */
     color: #ffffff;
 }
 .blackjack-row-1 div {
     border: 1px solid black;
     padding: 10px;
-    flex: 1; /*flex = 1 will give both variable equal amount of space in a page*/
+    flex: 1;
     height: 350px;
     text-align: center;
 }
