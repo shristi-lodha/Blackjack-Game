@@ -1,9 +1,7 @@
 let blackjackGame = {
-    // If comma (,) is not here then it will give syntax error 
     'you': { 'scoreSpan': '#your-blackjack-result', 'div': '#your-box', 'score': 0 },
     'dealer': { 'scoreSpan': '#dealer-blackjack-result', 'div': '#dealer-box', 'score': 0 },
     // cards name
-    //let 'cards': ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'K', 'J', 'Q', 'A'],
     'cards': ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'K', 'J', 'Q', 'A'],
     // cards value
     'cardsMap': { '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9, '10': 10, 'J': 10, 'K': 10, 'Q': 10, 'A': [1, 11] },
@@ -11,8 +9,7 @@ let blackjackGame = {
     'wins': 0,
     'losses': 0,
     'draws': 0,
-    // isStand for the Stand button to play as a bot
-    // turnsOver is for when the deal is done you can't go back the dealer will start its chance
+ 
     'isStand': false,
     'turnsOver': false
 };
@@ -52,8 +49,7 @@ function showCard(card, activePlayer) {
     if (activePlayer['score'] <= 21) {
         // activePlayer will make the code available to both div's YOU & DEALER which make it versetile and not restricting writing same code again for DEALER
         let cardImage = document.createElement('img');
-        cardImage.src = `images/${card}.png`;  //called string templating
-        // This(` `) brackets are called Backticks and their shortcut is "${}"
+        cardImage.src = `images/${card}.png`;  //string templating
         document.querySelector(activePlayer['div']).appendChild(cardImage);
         hitSound.play();
     }
@@ -81,11 +77,11 @@ function blackjackDeal() {
         //  we pass the value of YOU & DEALER 0 because we haven't pass any cards yet
         document.querySelector('#your-blackjack-result').textContent = 0;
         document.querySelector('#dealer-blackjack-result').textContent = 0;
-        // color of the 0 value
+        // color of the YOU & DEALER value's
         document.querySelector('#your-blackjack-result').style.color = '#ffffff';
         document.querySelector('#dealer-blackjack-result').style.color = '#ffffff';
 
-        // for reseting the let's play again after playing it
+        // for reseting the play button after playing it
         document.querySelector('#blackjack-result').textContent = "Let's play";
         document.querySelector('#blackjack-result').style.color = 'black';
 
@@ -106,7 +102,7 @@ function updateScore(card, activePlayer) {
     }
 }
 
-// showScroe show's the score in the box and it also BUST us when value become above 21
+// show's the score in the box and it also BUST us when value become above 21
 function showScore(activePlayer) {
     if (activePlayer['score'] > 21) {
         document.querySelector(activePlayer['scoreSpan']).textContent = 'BUST!';
@@ -116,7 +112,7 @@ function showScore(activePlayer) {
     }
 }
 
-//  sleep function make sure that we delay our cards timing which were coming together in a deal (bot) function so that it give us real feel
+// sleep function make sure that we delay our cards timing which were coming together in a deal (bot) function so that it give us real feel
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
